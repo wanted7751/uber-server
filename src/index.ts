@@ -1,1 +1,6 @@
-console.log("works!");
+import app from "./app";
+
+
+
+
+app.start()
