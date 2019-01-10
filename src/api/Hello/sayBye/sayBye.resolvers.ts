@@ -1,17 +1,15 @@
-import { Greeting } from "../../../types/graph"
+
+import { SayByeQueryArgs, SayByeResponse } from "../../../types/graph";
 
 const resolvers = {
     Query: {
-        sayBye: (): Greeting => {
+        sayBye: (_, args: SayByeQueryArgs): SayByeResponse => {
             return {
                 error: false,
-                text: "love you"
-
+                text: `Hello ${args.name}`
             };
         }
     }
 };
 
-
 export default resolvers;
-
