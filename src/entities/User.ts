@@ -1,6 +1,8 @@
+import bcrypt from "bcrypt";
 import {IsEmail} from "class-validator";
-import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm";
+import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, BeforeInsert, BeforeUpdate } from "typeorm";
 
+const BCRYPT_ROUNDS = 10; 
 
 @Entity()
 class User extends BaseEntity{
@@ -62,6 +64,22 @@ class User extends BaseEntity{
     @UpdateDateColumn()
     updatedAt: string;
 
+
+    @BeforeInsert()
+
+    @BeforeUpdate()
+
+    async savePassword() : Promise<void>  {
+        if(this.password){
+            const hashedPassword = await this.hashPassword(this.password);
+            this.password = hashedPassword
+        }
+    }
+
+    private hashPassword(password: string): Promise<string> {
+        // string 값을 더 받아야지 통과라는말 promise 라는 말은
+        return bcrypt.hash(password, BCRYPT_ROUNDS);
+    }
 }
 
 
