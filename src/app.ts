@@ -4,8 +4,6 @@ import helmet from "helmet";
 import logger from "morgan";
 import schema from "./schema";
 
-//ssssss
-
 
 class App {
     public app:GraphQLServer;
