@@ -1,47 +1,53 @@
-import User from "../../entities/User"
-import {Resolvers} from "../../types/resolvers"
-import { FacebookConnectMutationArgs, 
-    FacebookConnectResponse }
-     from "../../types/graph";
 
-const resolvers: Resolvers ={
-    Mutation:{
-        FacebookConnect:async(
+import User from "../../entities/User";
+import {
+    FacebookConnectMutationArgs,
+    FacebookConnectResponse
+} from "../../types/graph";
+import { Resolvers } from "../../types/resolvers";
+
+const resolvers: Resolvers = {
+    Mutation: {
+        FacebookConnect: async (
             _,
-            args:FacebookConnectMutationArgs 
+            args: FacebookConnectMutationArgs
         ): Promise<FacebookConnectResponse> => {
-            const {fbId} = args;
-            try{
-                const existingUser = await User.findOne({fbbd});
-                if(existingUser){
-                    return{
-                        ok:true,
-                        error:null,
-                        token:"Coming soon"
+            const { fbId } = args;
+            try {
+                const existingUser = await User.findOne({ fbId });
+                if (existingUser) {
+                    return {
+                        ok: true,
+                        error: null,
+                        token: "Coming soon"
                     };
-                }else{
-
                 }
-            }catch(error){
-                return{
-                    ok:false,
-                    error:error.message,
-                    token:null
-                }
+            } catch (error) {
+                return {
+                    ok: false,
+                    error: error.message,
+                    token: null
+                };
             }
-            try{
-
-            }catch(error){
-                return{
-                    ok:false,
-                    error:error.message,
-                    token:null
-
-                }
+            try {
+                await User.create({
+                    ...args,
+                    profilePhoto: `http://graph.facebook.com/${fbId}/picture?type=square`
+                }).save();
+                return {
+                    ok: true,
+                    error: null,
+                    token: "Coming soon"
+                };
+            } catch (error) {
+                return {
+                    ok: false,
+                    error: error.message,
+                    token: null
+                };
             }
         }
     }
-}
-
+};
 
 export default resolvers;
