@@ -6,13 +6,17 @@ uber clone with react and graphql
 - [x] Sign In / Sign Up with Facebook
 - [x] Sign In with Email
 - [x] Starts Phone Number Verification
-- [ ] Complete Phone Number Verification
+- [x] Complete Phone Number Verification
 - [ ] Sign Up with Email
+
+### Authentication:
+
+- [x] Generate JWT
+- [ ] Verify JWT
 
 ### Private Resolvers:
 
-- [ ] Generate JWT
-- [ ] Verify JWT
+
 - [ ] Verify Email
 - [ ] Get My Profile
 - [ ] Update My Profile
