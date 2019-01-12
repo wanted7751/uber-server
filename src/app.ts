@@ -19,7 +19,14 @@ class App {
         this.app.express.use(logger("dev"));
         // express는 logger를 사용하고 logger는 타입dev를 가질 수 있다.
         this.app.express.use(helmet());
+        this.app.express.use(this.jwt);
     }
+    private jwt = async (req, res, next): Promise<void> => {
+        const token = req.get("X-JWT");
+        if (token) {
+        }
+        next();
+    };
 }
 
 export default new App().app
