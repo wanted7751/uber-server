@@ -71,12 +71,12 @@ type User {
   id: Int!
   email: String
   verifiedEmail: Boolean!
-  firName: String!
+  firstName: String!
   lastName: String!
   age: Int
   password: String
   phoneNumber: String
-  verifiedPhoneNumber: Boolean!
+  verifiedPhonenNumber: Boolean!
   profilePhoto: String
   fullName: String
   isDriving: Boolean!
@@ -87,11 +87,11 @@ type User {
   lastOrientation: Float
   fbId: String
   chat: Chat
-  message: [Message]
+  messages: [Message]
   ridesAsPassenger: [Ride]
   ridesAsDriver: [Ride]
-  createdAt: String
-  updateAt: String
+  createdAt: String!
+  updatedAt: String
 }
 
 type Query {
@@ -103,7 +103,6 @@ type Verification {
   target: String!
   payload: String!
   key: String!
-  used: Boolean!
   createdAt: String!
   updatedAt: String!
 }
