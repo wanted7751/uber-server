@@ -1,6 +1,6 @@
 type EmailSignUpResponse{
     ok:Boolean!
-    error:String!
+    error:String
     token:String
 }
 
