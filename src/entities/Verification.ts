@@ -10,7 +10,6 @@ import {
 } from "typeorm";
 
 import { verificationTarget} from "../types/types.d"
-import User from "./User";
 
 const PHONE = "PHONE";
 const EMAIL = "EMAIL";
@@ -28,9 +27,6 @@ class Verification extends BaseEntity {
 
   @Column({ type: "text" })
   key: string;
-
-  @Column({ type: "boolean", default: false })
-  used: boolean;
   
   @CreateDateColumn() createdAt: string;
   @UpdateDateColumn() updatedAt: string;
