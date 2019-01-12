@@ -1,13 +1,16 @@
 # uber-server
 uber clone with react and graphql
 
-## Features
+### Public Resolvers:
 
 - [ ] Sign In / Sign Up with Facebook
 - [ ] Sign In with Email
 - [ ] Starts Phone Number Verification
 - [ ] Complete Phone Number Verification
 - [ ] Sign Up with Email
+
+### Private Resolvers:
+- [ ] Verify Email
 - [ ] Get My Profile
 - [ ] Update My Profile
 - [ ] Add Place
@@ -15,3 +18,17 @@ uber clone with react and graphql
 - [ ] Delete Place
 - [ ] See Nearby Drivers
 - [ ] Subscribe to Nearby Drivers
+- [ ] Request a Ride
+- [ ] Get Nearby Rides
+- [ ] Subscribe to Nearyby ride Requests
+- [ ] Subscribe to Ride Status
+- [ ] Get Chat Room Messages
+- [ ] Subscribe to Chat Room Messages
+- [ ] send a Chat Message
+
+
+
+### Code Challenge
+
+- [ ] Get Ride History
+- [ ] See Ride Detail
